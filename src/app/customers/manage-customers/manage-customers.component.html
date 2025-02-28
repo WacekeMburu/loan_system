@@ -1,0 +1,67 @@
+ 
+<form [formGroup]="loanForm" (ngSubmit)="onSubmit()">
+    <label>Full Name:</label>
+    <input type="text" formControlName="fullName" />
+    <br />
+  
+    <label>Email:</label>
+    <input type="email" formControlName="email" />
+    <br />
+  
+    <label>Phone Number:</label>
+    <input type="text" formControlName="phone" />
+    <br />
+  
+    <label>Loan Amount:</label>
+    <input type="number" formControlName="amount" />
+    <br />
+  
+    <label>Loan Term (Months):</label>
+    <input type="number" formControlName="term" />
+    <br />
+  
+    <label>Purpose of Loan:</label>
+    <textarea formControlName="purpose"></textarea>
+    <br />
+  
+    <label>Income Details:</label>
+    <input type="number" formControlName="income" />
+    <br />
+  
+    <button type="submit">Apply</button>
+  </form> 
+  
+  <!-- Table to Display Stored Loan Applications  -->
+  <h2>Loan Applications</h2>
+  <table border="1" *ngIf="applications.length > 0">
+    <thead>
+      <tr>
+        <th>Full Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Amount</th>
+        <th>Term (Months)</th>
+        <th>Purpose</th>
+        <th>Income</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let application of applications; let i = index">
+        <td>{{ application.fullName }}</td>
+        <td>{{ application.email }}</td>
+        <td>{{ application.phone }}</td>
+        <td>{{ application.amount }}</td>
+        <td>{{ application.term }}</td>
+        <td>{{ application.purpose }}</td>
+        <td>{{ application.income }}</td>
+        <td>
+            <button (click)="editApplication(i)">Edit</button>
+            <button (click) = "deleteApplication(i)" style="background-color: red; color: white; margin-left: 5px;">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <!-- Button to Clear Applications -->
+  <button (click)="clearApplications()" *ngIf="applications.length > 0">Clear All Applications</button>
+  

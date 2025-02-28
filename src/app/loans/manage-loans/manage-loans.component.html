@@ -1,0 +1,53 @@
+
+<form [formGroup]="loanForm" (ngSubmit)="updateLoan()" *ngIf="editIndex !== null">
+  <h3>Edit Loan</h3>
+  <label>Customer Name:</label>
+  <input formControlName="customerName" type="text" required>
+  
+  <label>Loan Amount:</label>
+  <input formControlName="loanAmount" type="number" required>
+  
+  <label>Interest Rate (%):</label>
+  <input formControlName="interestRate" type="number" required>
+  
+  <label>Loan Term (Months):</label>
+  <input formControlName="loanTerm" type="number" required>
+  
+  <label>Start Date:</label>
+  <input formControlName="startDate" type="date" required>
+  
+  <label>Loan Type:</label>
+  <select formControlName="loanType">
+    <option value="Personal">Personal</option>
+    <option value="Business">Business</option>
+  </select>
+  
+  <button type="submit" [disabled]="loanForm.invalid">Update Loan</button>
+</form>
+
+<table border="1">
+  <thead>
+    <tr>
+      <th>Borrower Name</th>
+      <th>Loan Amount</th>
+      <th>Interest Rate (%)</th>
+      <th>Tenure (Months)</th>
+      <th>Loan Type</th>
+      <th>Start Date</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let loan of loans">
+      <td>{{ loan.customerName }}</td>
+      <td>{{ loan.loanAmount }}</td>
+      <td>{{ loan.interestRate }}</td>
+      <td>{{ loan.loanTerm }}</td>
+      <td>{{ loan.startDate }}</td>
+      <td>{{ loan.loanType }}</td>
+    </tr>
+    <tr *ngIf="loans.length === 0">
+      <td colspan="6">No loans found.</td>
+    </tr>
+  </tbody>
+</table>

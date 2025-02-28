@@ -1,0 +1,26 @@
+<form [formGroup]="loanForm" (ngSubmit)="onSubmit()" class="loan-form">
+  <label>Borrower Name:</label>
+  <input formControlName="borrowerName" type="text" required>
+  
+  <label>Loan Amount:</label>
+  <input formControlName="loanAmount" type="number" required>
+  
+  <label>Interest Rate (%):</label>
+  <input formControlName="interestRate" type="number" required>
+  
+  <label>Tenure (Months):</label>
+  <input formControlName="tenure" type="number" required>
+  
+  <label>Loan Type:</label>
+  <select formControlName="loanType">
+    <option value="personal">Personal</option>
+    <option value="business">Business</option>
+    <option value="home">Home</option>
+  </select>
+  
+  <label>Start Date:</label>
+  <input formControlName="startDate" type="date" required>
+  
+  <button type="submit" class="submit-button" >Add Loan</button>
+</form>
+<!-- [disabled]="!loanForm.valid" -->

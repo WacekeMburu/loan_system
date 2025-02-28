@@ -1,0 +1,33 @@
+.charts {
+    display: flex;
+    flex-direction: row; /* Arrange charts horizontally */
+    justify-content: space-between; /* Add space between charts */
+    width: 100%; /* Charts take up 3/4 of the dashboard */
+    margin:0 auto; /* Center within the dashboard */
+    
+  }
+
+  .chart-container {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    flex: 1; /* Allow charts to take equal space */
+    margin: 0 10px; /* Space between charts */
+  
+  }
+
+  .chart-placeholder {
+    height: 200px; /* Adjust chart height */
+    background: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    
+  }
+
+  canvas {
+    width: 100% !important;
+    height: 400px !important;
+  }

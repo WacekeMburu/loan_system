@@ -1,0 +1,113 @@
+
+/* Center the form and add some padding */
+form {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 8px;
+    background: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Style labels */
+  label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+  }
+  
+  /* Style inputs and textarea */
+  input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  /* Improve textarea appearance */
+  textarea {
+    resize: vertical;
+    min-height: 80px;
+  }
+  
+  /* Style buttons */
+  button {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Style delete button separately */
+  button.delete-btn {
+    background-color: red;
+  }
+  
+  button.delete-btn:hover {
+    background-color: darkred;
+  }
+  
+
+/* Style the table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  /* Style table headers */
+  th {
+    background-color: #007bff;
+    color: white;
+    padding: 12px;
+    text-align: left;
+  }
+  
+  /* Style table rows */
+  td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  /* Add zebra striping */
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  /* Hover effect */
+  tr:hover {
+    background-color: #e2e6ea;
+    transition: 0.3s;
+  }
+  
+  /* Style the "Clear Applications" button */
+  button {
+    margin-top: 15px;
+    padding: 10px 15px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  button:hover {
+    background-color: #c82333;
+  }
+  
