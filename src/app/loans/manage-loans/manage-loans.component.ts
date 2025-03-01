@@ -14,12 +14,12 @@ export class ManageLoansComponent implements OnInit {
 
   constructor(private fb: FormBuilder) {
     this.loanForm = this.fb.group({
-      customerName: ['', Validators.required],
+      borrowerName: ['', Validators.required],
       loanAmount: ['', [Validators.required, Validators.min(1)]],
       interestRate: ['', [Validators.required, Validators.min(0)]],
-      loanTerm: ['', [Validators.required, Validators.min(1)]],
-      startDate: ['', Validators.required],
-      loanType: ['', Validators.required]
+      tenure: ['', [Validators.required, Validators.min(1)]],
+      loanType: ['', Validators.required],
+      startDate: ['', Validators.required]
     });
   }
 
@@ -29,13 +29,15 @@ export class ManageLoansComponent implements OnInit {
   }
 
   loadLoans() {
-    const storedLoans = localStorage.getItem('loans');
-    this.loans = storedLoans ? JSON.parse(storedLoans) : [];
+    this.loans =JSON.parse(localStorage.getItem('loans') || '[]');
+  //   const storedLoans = localStorage.getItem('loans');
+  //   this.loans = storedLoans ? JSON.parse(storedLoans) : [];
   }
 
   editLoan(index: number) {
     this.editIndex = index;
     this.loanForm.setValue(this.loans[index]);
+    
   }
 
   updateLoan() {
@@ -44,6 +46,12 @@ export class ManageLoansComponent implements OnInit {
       localStorage.setItem('loans', JSON.stringify(this.loans));
       this.editIndex = null;
       this.loanForm.reset();
+    }
+  }
+  deleteLoan(index: number) {
+    if (confirm('Are you sure you want to delete this loan?')) {
+      this.loans.splice(index, 1);
+      localStorage.setItem('loans', JSON.stringify(this.loans));
     }
   }
 

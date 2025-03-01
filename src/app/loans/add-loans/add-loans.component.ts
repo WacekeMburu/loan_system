@@ -31,6 +31,7 @@ export class AddLoansComponent {
       alert('Loan successfully added and saved to local storage!');
       this.loanForm.reset();
     }}
+  }
 
   //     this.loans.push(this.loanForm.value); // Store loan temporarily
   //     console.log('Loan Added:', this.loanForm.value);
@@ -39,7 +40,7 @@ export class AddLoansComponent {
   // }
 
 
-  }
+  
 
 
 

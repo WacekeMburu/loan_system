@@ -1,8 +1,8 @@
 
-<form [formGroup]="loanForm" (ngSubmit)="updateLoan()" *ngIf="editIndex !== null">
-  <h3>Edit Loan</h3>
-  <label>Customer Name:</label>
-  <input formControlName="customerName" type="text" required>
+<form [formGroup]="loanForm" (ngSubmit)="updateLoan()" *ngIf="editIndex !== null" class="loan-form">
+  <!-- <h3>Edit Loan</h3> -->
+  <label>Borrower Name:</label>
+  <input formControlName="borrowerName" type="text" required>
   
   <label>Loan Amount:</label>
   <input formControlName="loanAmount" type="number" required>
@@ -10,22 +10,24 @@
   <label>Interest Rate (%):</label>
   <input formControlName="interestRate" type="number" required>
   
-  <label>Loan Term (Months):</label>
-  <input formControlName="loanTerm" type="number" required>
-  
-  <label>Start Date:</label>
-  <input formControlName="startDate" type="date" required>
+  <label>Tenure (Months):</label>
+  <input formControlName="tenure" type="number" required>
   
   <label>Loan Type:</label>
   <select formControlName="loanType">
-    <option value="Personal">Personal</option>
-    <option value="Business">Business</option>
+    <option value="personal">Personal</option>
+    <option value="business">Business</option>
+    <option value="home">Home</option>
   </select>
-  
-  <button type="submit" [disabled]="loanForm.invalid">Update Loan</button>
-</form>
 
-<table border="1">
+  <label>Start Date:</label>
+  <input formControlName="startDate" type="date" required>
+  
+  <button type="submit" class="submit-button">Update Loan</button>
+</form>
+<!-- [disabled]="loanForm.invalid"> -->
+
+<table border="1" class="loan-table">
   <thead>
     <tr>
       <th>Borrower Name</th>
@@ -38,16 +40,21 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let loan of loans">
-      <td>{{ loan.customerName }}</td>
+    <tr *ngFor="let loan of loans; let i = index">
+      <td>{{ loan.borrowerName }}</td>
       <td>{{ loan.loanAmount }}</td>
       <td>{{ loan.interestRate }}</td>
-      <td>{{ loan.loanTerm }}</td>
-      <td>{{ loan.startDate }}</td>
+      <td>{{ loan.tenure }}</td>
       <td>{{ loan.loanType }}</td>
-    </tr>
-    <tr *ngIf="loans.length === 0">
-      <td colspan="6">No loans found.</td>
+      <td>{{ loan.startDate }}</td>
+      <td>
+        <button (click)="editLoan(i)" class="edit-button">Edit</button>
+        <button (click)="deleteLoan(i)" class="delete-button">Delete</button>
+
+
+      </td>
+    <!-- <tr *ngIf="loans.length === 0">
+      <td colspan="6">No loans found.</td> -->
     </tr>
   </tbody>
 </table>
