@@ -1,0 +1,5 @@
+<button mat-button [matMenuTriggerFor]="menu">Customers</button>
+<mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="navigateToPage()">Add Customers</button>
+  <button mat-menu-item><a routerLink="/manage-customers">Manage Customers</a></button>
+</mat-menu>

@@ -19,18 +19,23 @@ import { ManageCustomersComponent } from './customers/manage-customers/manage-cu
 import { ReactiveFormsModule } from '@angular/forms';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
+import { MatMenuModule } from '@angular/material/menu';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
+
   declarations: [
     AppComponent,
-    CustomersComponent,
+    // CustomersComponent,
     AddLoansComponent,
     LoansComponent,
     ManageLoansComponent,
     AddCustomersComponent,
     ManageCustomersComponent,
     DashboardComponent,
-    LoginComponent
+    LoginComponent,
+    
+
   ],
   imports: [
     BrowserModule,
@@ -42,7 +47,9 @@ import { LoginComponent } from './login/login.component';
     MatListModule,
     MatButtonModule,
     MatCardModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatMenuModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]
